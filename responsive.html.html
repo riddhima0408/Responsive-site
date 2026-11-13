@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Task 3 - Responsive Design</title>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/css/bootstrap.min.css" rel="stylesheet">
+<style>
+  :root {
+    --primary: #e67e22;
+    --accent: #f1c40f;
+    --dark: #2d3436;
+  }
+
+  body {
+    font-family: 'Segoe UI', sans-serif;
+    background: #f5f6fa;
+    color: var(--dark);
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(135deg, var(--primary), var(--accent));
+    color: #fff;
+    padding: 100px 20px;
+    text-align: center;
+    transition: background 0.5s ease;
+  }
+
+  .hero h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    animation: fadeInDown 1s ease-out;
+  }
+
+  .hero p {
+    font-size: 1.2rem;
+    animation: fadeInUp 1.2s ease-out;
+  }
+
+  /* Animations */
+  @keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  @keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(30px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Cards */
+  .feature-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: 100%;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 25px rgba(108, 92, 231, 0.25);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    color: var(--primary);
+    margin-bottom: 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+  }
+
+  .feature-card:hover .feature-icon {
+    color: var(--accent);
+    transform: scale(1.2) rotate(8deg);
+  }
+
+  /* Button */
+  .btn-custom {
+    background: var(--primary);
+    color: #fff;
+    border: none;
+    padding: 10px 30px;
+    border-radius: 30px;
+    transition: all 0.3s ease;
+  }
+
+  .btn-custom:hover {
+    background: var(--accent);
+    color: #fff;
+    transform: scale(1.05);
+  }
+
+  /* Section spacing */
+  section {
+    padding: 60px 0;
+  }
+
+  .section-title {
+    text-align: center;
+    margin-bottom: 40px;
+    font-weight: 700;
+    position: relative;
+  }
+
+  .section-title::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--primary);
+    margin: 12px auto 0;
+    border-radius: 2px;
+  }
+
+  /* Footer */
+  footer {
+    background: var(--dark);
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+  }
+
+  /* Responsive tweaks */
+  @media (max-width: 768px) {
+    .hero h1 { font-size: 2.2rem; }
+    .hero p { font-size: 1rem; }
+    section { padding: 40px 0; }
+  }
+
+  @media (max-width: 480px) {
+    .hero { padding: 60px 15px; }
+    .hero h1 { font-size: 1.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark" style="background-color: var(--dark);">
+  <div class="container">
+    <a class="navbar-brand fw-bold" href="#">My Site</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link" href="#features">Features</a></li>
+        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero Section -->
+<section class="hero" id="home">
+  <h1>Welcome to Our Responsive Site</h1>
+  <p>Built with Bootstrap, custom CSS, transitions & animations</p>
+  <button class="btn btn-custom mt-3">Get Started</button>
+</section>
+
+<!-- Features Section -->
+<section id="features" class="container">
+  <h2 class="section-title">Our Features</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="feature-card p-4 text-center">
+        <div class="feature-icon">⚡</div>
+        <h4>Fast Performance</h4>
+        <p>Optimized layouts that load quickly across all devices.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card p-4 text-center">
+        <div class="feature-icon">📱</div>
+        <h4>Fully Responsive</h4>
+        <p>Adapts seamlessly to mobile, tablet, and desktop screens.</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="feature-card p-4 text-center">
+        <div class="feature-icon">🎨</div>
+        <h4>Modern Design</h4>
+        <p>Smooth transitions and animations for a polished feel.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About Section -->
+<section id="about" class="bg-white">
+  <div class="container">
+    <h2 class="section-title">About Us</h2>
+    <div class="row align-items-center g-4">
+      <div class="col-md-6">
+        <p>This page demonstrates an advanced CSS layout combining custom styling,
+        keyframe animations, hover transitions, and Bootstrap's responsive grid system.
+        Resize your browser window to see the layout adapt automatically.</p>
+      </div>
+      <div class="col-md-6">
+        <div class="p-4 rounded" style="background: linear-gradient(135deg, var(--primary), var(--accent)); color:#fff;">
+          <h5>Why Responsive Design Matters</h5>
+          <p class="mb-0">Over half of web traffic comes from mobile devices,
+          making adaptive layouts essential for usability and reach.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact" class="container">
+  <h2 class="section-title">Contact Us</h2>
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <form>
+        <div class="mb-3">
+          <input type="text" class="form-control" placeholder="Your Name">
+        </div>
+        <div class="mb-3">
+          <input type="email" class="form-control" placeholder="Your Email">
+        </div>
+        <div class="mb-3">
+          <textarea class="form-control" rows="4" placeholder="Your Message"></textarea>
+        </div>
+        <button type="button" class="btn btn-custom w-100">Send Message</button>
+      </form>
+    </div>
+  </div>
+</section>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
